@@ -1,0 +1,80 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Tenant Service - OpenAPI 3.0",
+    "description": "Ronin Tenant Service API specification",
+    "contact": {
+      "email": "pecore@projectronin.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tenant API",
+      "description": "Ronin organization and tenant service"
+    }
+  ],
+  "paths": {
+    "/organizations": {
+      "post": {
+        "summary": "Add a new organization",
+        "description": "Add a new organization record",
+        "operationId": "addOrganization",
+        "tags": [
+          "Tenant API"
+        ],
+        "requestBody": {
+          "description": "Create a new organization",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "seki": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
