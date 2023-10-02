@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Organization": {
+        "title": "",
+        "description": "An organization",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Status": {
+        "type": "string",
+        "enum": [
+          "ACTIVE",
+          "DELETED"
+        ]
+      }
+    }
+  }
+}

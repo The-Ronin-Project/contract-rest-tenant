@@ -1,4 +1,4 @@
-rootProject.name = "ronin-contract-rest-template"
+rootProject.name = "contract-rest-tenant"
 
 pluginManagement {
     repositories {
@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("roningradle") {
-            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.2.0")
+            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.3.7")
         }
     }
 }
