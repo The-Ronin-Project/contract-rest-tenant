@@ -15,21 +15,21 @@
   ],
   "tags": [
     {
-      "name": "Tenant API",
-      "description": "Ronin organization and tenant service"
+      "name": "Organization",
+      "description": "Ronin Organization management"
     }
   ],
   "paths": {
     "/organizations": {
       "post": {
-        "summary": "Add a new organization",
-        "description": "Add a new organization record",
+        "summary": "Create",
+        "description": "Add a new Organization record",
         "operationId": "addOrganization",
         "tags": [
-          "Tenant API"
+          "Organization"
         ],
         "requestBody": {
-          "description": "Create a new organization",
+          "description": "Create a new Organization",
           "content": {
             "application/json": {
               "schema": {
@@ -39,6 +39,53 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    },
+    "/organizations/{org_id}": {
+      "get": {
+        "summary": "Get",
+        "description": "Fetch an Organization by ID",
+        "operationId": "getOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Organization ID"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
