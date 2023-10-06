@@ -1,0 +1,28 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "PagedOrganizationResponse": {
+        "title": "Organizations list Response",
+        "description": "Retrieves a paged list of organizations.",
+        "allOf": [
+          {
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": { "$ref": "organization.json#/components/schemas/Organization" }
+              }
+            },
+            "required": [ "data" ]
+          },
+          { "$ref": "../../.dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
+        ]
+      }
+    }
+  }
+}
