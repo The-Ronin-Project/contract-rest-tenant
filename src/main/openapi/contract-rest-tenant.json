@@ -65,6 +65,63 @@
             "seki": []
           }
         ]
+      },
+      "get": {
+        "summary": "List",
+        "description": "List all Organization records",
+        "operationId": "getOrganizations",
+        "tags": [
+          "Organization"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "description": "Restrict the number of results"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "description": "A paging token provided by a previous response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/paged-organization-response.json#/components/schemas/PagedOrganizationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
     "/organizations/{org_id}": {
