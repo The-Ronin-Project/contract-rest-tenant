@@ -14,7 +14,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "readOnly": true
+            "readOnly": true,
+            "minLength": 36,
+            "maxLength": 36
           },
           "name": {
             "type": "string",
@@ -22,7 +24,7 @@
             "maxLength": 256
           },
           "status": {
-            "$ref": "#/components/schemas/Status"
+            "$ref": "#/components/schemas/OrganizationStatus"
           },
           "createdAt": {
             "type": "string",
@@ -43,7 +45,7 @@
           "name"
         ]
       },
-      "Status": {
+      "OrganizationStatus": {
         "type": "string",
         "enum": [
           "ACTIVE",
