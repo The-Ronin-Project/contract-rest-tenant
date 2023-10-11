@@ -179,7 +179,7 @@
       "get": {
         "summary": "Get",
         "description": "Fetch a Tenant by ID and Organization ID",
-        "operationId": "getTenantByIdAndOrganizationId",
+        "operationId": "getOrganizationTenantById",
         "tags": [
           "Organization",
           "Tenant"
