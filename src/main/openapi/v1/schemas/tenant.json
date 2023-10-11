@@ -70,8 +70,7 @@
         },
         "required": [
           "shortName",
-          "name",
-          "organizationId"
+          "name"
         ]
       },
       "TenantStatus": {
