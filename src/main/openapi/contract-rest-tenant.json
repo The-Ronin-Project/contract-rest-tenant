@@ -17,6 +17,10 @@
     {
       "name": "Organization",
       "description": "Ronin Organization management"
+    },
+    {
+      "name": "Tenant",
+      "description": "Ronin Tenant management"
     }
   ],
   "paths": {
@@ -150,6 +154,110 @@
               "application/json": {
                 "schema": {
                   "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    },
+    "/tenants": {
+      "post": {
+        "summary": "Create",
+        "description": "Add a new Tenant record",
+        "operationId": "addTenant",
+        "tags": [
+          "Tenant"
+        ],
+        "requestBody": {
+          "description": "Create a new Tenant",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "List",
+        "description": "List all Tenant records",
+        "operationId": "getTenants",
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "description": "Restrict the number of results"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            },
+            "description": "A paging token provided by a previous response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/paged-tenant-response.json#/components/schemas/PagedTenantResponse"
                 }
               }
             }
