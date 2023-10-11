@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "/api/v1"
+      "url": "/api/v1/management"
     }
   ],
   "tags": [
@@ -154,6 +154,63 @@
               "application/json": {
                 "schema": {
                   "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    },
+    "/organizations/{org_id}/tenants/{tenant_id}": {
+      "get": {
+        "summary": "Get",
+        "description": "Fetch a Tenant by ID and Organization ID",
+        "operationId": "getOrganizationTenantById",
+        "tags": [
+          "Organization",
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Organization ID"
+          },
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Tenant ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
                 }
               }
             }
