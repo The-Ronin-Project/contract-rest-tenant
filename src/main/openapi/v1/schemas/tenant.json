@@ -7,6 +7,43 @@
   },
   "components": {
     "schemas": {
+      "CreateTenantRequest": {
+        "title": "Create Ronin tenant",
+        "description": "Request to create a Ronin tenant",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "shortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "clientId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientAccess": {
+            "type": "boolean",
+            "default": false
+          },
+          "issUrl": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "defaultTimezone": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "name",
+          "shortName"
+        ]
+      },
       "Tenant": {
         "title": "Ronin tenant",
         "description": "A tenant",
@@ -14,7 +51,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "[Optional] 8-character lower-case following base32",
+            "description": "8-character lower-case following base32",
             "minLength": 8,
             "maxLength": 8
           },
@@ -33,13 +70,11 @@
           },
           "organizationId": {
             "type": "string",
-            "minLength": 36,
-            "maxLength": 36
+            "format": "uuid"
           },
           "clientId": {
             "type": "string",
-            "minLength": 36,
-            "maxLength": 36
+            "format": "uuid"
           },
           "clientAccess": {
             "type": "boolean",
@@ -69,8 +104,15 @@
           }
         },
         "required": [
+          "id",
           "shortName",
-          "name"
+          "name",
+          "organizationId",
+          "status",
+          "createdAt",
+          "createdBy",
+          "updatedAt",
+          "updatedBy"
         ]
       },
       "TenantStatus": {
