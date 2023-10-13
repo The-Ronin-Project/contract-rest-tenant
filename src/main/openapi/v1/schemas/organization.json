@@ -7,6 +7,21 @@
   },
   "components": {
     "schemas": {
+      "CreateOrganizationRequest": {
+        "title": "",
+        "description": "Request to create an organization with specified data",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
       "Organization": {
         "title": "",
         "description": "An organization",
@@ -14,9 +29,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "readOnly": true,
-            "minLength": 36,
-            "maxLength": 36
+            "format": "uuid"
           },
           "name": {
             "type": "string",
@@ -42,7 +55,13 @@
           }
         },
         "required": [
-          "name"
+          "id",
+          "name",
+          "status",
+          "createdAt",
+          "createdBy",
+          "updatedAt",
+          "updatedBy"
         ]
       },
       "OrganizationStatus": {

@@ -37,7 +37,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "v1/schemas/organization.json#/components/schemas/Organization"
+                "$ref": "v1/schemas/organization.json#/components/schemas/CreateOrganizationRequest"
               }
             }
           },
@@ -142,7 +142,8 @@
             "name": "org_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Organization ID"
           }
@@ -190,7 +191,8 @@
             "name": "org_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Organization ID"
           }
@@ -200,7 +202,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+                "$ref": "v1/schemas/tenant.json#/components/schemas/CreateTenantRequest"
               }
             }
           },
@@ -247,7 +249,8 @@
             "name": "org_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Organization ID"
           },
@@ -316,7 +319,8 @@
             "name": "org_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Organization ID"
           },
