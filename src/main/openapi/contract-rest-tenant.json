@@ -420,6 +420,53 @@
           }
         ]
       }
+    },
+    "/tenants/{tenant_id}": {
+      "get": {
+        "summary": "Get a tenant",
+        "description": "Fetch a Tenant by ID",
+        "operationId": "getTenant",
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Tenant ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
     }
   },
   "components": {
