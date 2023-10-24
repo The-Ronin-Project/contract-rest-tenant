@@ -223,6 +223,9 @@
           },
           "405": {
             "description": "Validation exception"
+          },
+          "409": {
+            "description": "Conflict: The version passed in does not match what is currently on the server"
           }
         },
         "security": [
