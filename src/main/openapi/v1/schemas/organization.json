@@ -75,6 +75,31 @@
           "ACTIVE",
           "DELETED"
         ]
+      },
+      "UpdateOrganizationRequest": {
+        "title": "",
+        "description": "A full organization update",
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "format": "int64",
+            "description": "optimistic locking record version"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrganizationStatus"
+          }
+        },
+        "required": [
+          "version",
+          "name",
+          "status"
+        ]
       }
     }
   }
