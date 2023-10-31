@@ -419,6 +419,62 @@
             "seki": []
           }
         ]
+      },
+      "delete":{
+        "summary": "Delete an Organization Tenant",
+        "description": "Delete a Tenant by ID and Organization ID",
+        "operationId": "deleteOrganizationTenantById",
+        "tags": [
+          "Organization",
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The Organization ID"
+          },
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Tenant ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/DeleteTenantResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
     "/tenants": {
