@@ -44,31 +44,6 @@
           "shortName"
         ]
       },
-      "DeleteTenantResponse": {
-        "title": "Delete Ronin tenant response",
-        "description": "Response from deleting a Ronin tenant",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "8-character lower-case following base32",
-            "minLength": 8,
-            "maxLength": 8
-          },
-          "organizationId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "required": [
-          "id",
-          "organizationId"
-        ]
-      },
       "Tenant": {
         "title": "Ronin tenant",
         "description": "A tenant",
