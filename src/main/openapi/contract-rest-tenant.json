@@ -165,6 +165,9 @@
           "401": {
             "description": "Not Authorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "405": {
             "description": "Validation exception"
           }
@@ -284,6 +287,9 @@
           "401": {
             "description": "Not Authorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "405": {
             "description": "Validation exception"
           }
@@ -352,6 +358,9 @@
           "401": {
             "description": "Not Authorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "405": {
             "description": "Validation exception"
           }
@@ -409,6 +418,61 @@
           },
           "401": {
             "description": "Not Authorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      },
+      "delete":{
+        "summary": "Delete an Organization Tenant",
+        "description": "Delete a Tenant by ID and Organization ID",
+        "operationId": "deleteOrganizationTenantById",
+        "tags": [
+          "Organization",
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The Organization ID"
+          },
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Tenant ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "405": {
             "description": "Validation exception"
@@ -515,6 +579,9 @@
           },
           "401": {
             "description": "Not Authorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "405": {
             "description": "Validation exception"
