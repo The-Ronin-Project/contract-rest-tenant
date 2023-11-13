@@ -20,7 +20,9 @@
             },
             "required": [ "data" ]
           },
-          { "$ref": "../../.dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
+          {
+            "$ref": "../../.dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse"
+          }
         ]
       }
     }

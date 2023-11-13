@@ -73,9 +73,8 @@
           "status": {
             "$ref": "#/components/schemas/TenantStatus"
           },
-          "organizationId": {
-            "type": "string",
-            "format": "uuid"
+          "organization": {
+            "$ref": "organization.json#/components/schemas/Organization"
           },
           "clientId": {
             "type": "string",
@@ -112,7 +111,7 @@
           "id",
           "shortName",
           "name",
-          "organizationId",
+          "organization",
           "status",
           "createdAt",
           "createdBy",
