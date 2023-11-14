@@ -44,6 +44,47 @@
           "shortName"
         ]
       },
+      "CreateTenantOrganizationRequest": {
+        "title": "Create Ronin tenant and organization",
+        "description": "A minimal tenant and organization",
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "organization": {
+            "$ref": "organization.json#/components/schemas/CreateOrganizationRequest"
+          },
+          "clientId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientAccess": {
+            "type": "boolean",
+            "default": false
+          },
+          "issUrl": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "defaultTimezone": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "shortName",
+          "name",
+          "organization"
+        ]
+      },
       "Tenant": {
         "title": "Ronin tenant",
         "description": "A tenant",
