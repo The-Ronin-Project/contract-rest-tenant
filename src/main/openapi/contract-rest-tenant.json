@@ -584,6 +584,52 @@
             "seki": []
           }
         ]
+      },
+      "post": {
+        "summary": "Create a Tenant and Organization",
+        "description": "Add a new Tenant and it's parent Organization in a single request",
+        "operationId": "addTenantAndOrganization",
+        "tags": [
+          "Tenant",
+          "Organization"
+        ],
+        "requestBody": {
+          "description": "Create a new Tenant And Organization",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "v1/schemas/tenant.json#/components/schemas/CreateTenantOrganizationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
     "/tenants/{tenant_id}": {
