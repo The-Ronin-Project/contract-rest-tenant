@@ -112,7 +112,7 @@
             "maxLength": 255
           },
           "status": {
-            "$ref": "#/components/schemas/TenantStatus"
+            "$ref": "#/components/schemas/TenantResponseStatus"
           },
           "organization": {
             "$ref": "organization.json#/components/schemas/Organization"
@@ -160,11 +160,64 @@
           "updatedBy"
         ]
       },
-      "TenantStatus": {
+      "TenantRequestStatus": {
+        "type": "string",
+        "enum": [
+          "ACTIVE"
+        ]
+      },
+      "TenantResponseStatus": {
         "type": "string",
         "enum": [
           "ACTIVE",
           "DELETED"
+        ]
+      },
+      "UpdateTenantRequest": {
+        "title": "Update Ronin tenant",
+        "description": "A full tenant update",
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "format": "int64",
+            "description": "optimistic locking record version"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "shortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "status": {
+            "$ref": "#/components/schemas/TenantRequestStatus"
+          },
+          "clientId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clientAccess": {
+            "type": "boolean",
+            "default": false
+          },
+          "issUrl": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "defaultTimezone": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "version",
+          "name",
+          "shortName",
+          "status"
         ]
       }
     }
