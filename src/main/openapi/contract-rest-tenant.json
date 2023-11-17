@@ -525,6 +525,75 @@
             "seki": []
           }
         ]
+      },
+      "put": {
+        "summary": "Update a tenant",
+        "description": "Perform a full replacement of a tenant",
+        "operationId": "putTenant",
+        "tags": [
+          "Organization",
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The Organization ID"
+          },
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Tenant ID"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "v1/schemas/tenant.json#/components/schemas/UpdateTenantRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/tenant.json#/components/schemas/Tenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          },
+          "409": {
+            "description": "Conflict: The version passed in does not match what is currently on the server"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
     "/tenants": {
