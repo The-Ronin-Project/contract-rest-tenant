@@ -7,6 +7,16 @@
   },
   "components": {
     "schemas": {
+      "AuthType": {
+        "type": "string",
+        "enum": [
+          "MDA",
+          "MOCK",
+          "OPENID",
+          "SOF"
+        ],
+        "default": "MOCK"
+      },
       "CreateTenantRequest": {
         "title": "Create Ronin tenant",
         "description": "Request to create a Ronin tenant",
@@ -21,6 +31,9 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 32
+          },
+          "authType": {
+            "$ref": "#/components/schemas/AuthType"
           },
           "clientId": {
             "type": "string",
@@ -61,6 +74,9 @@
           },
           "organization": {
             "$ref": "organization.json#/components/schemas/CreateOrganizationRequest"
+          },
+          "authType": {
+            "$ref": "#/components/schemas/AuthType"
           },
           "clientId": {
             "type": "string",
@@ -117,6 +133,9 @@
           "organization": {
             "$ref": "organization.json#/components/schemas/Organization"
           },
+          "authType": {
+            "$ref": "#/components/schemas/AuthType"
+          },
           "clientId": {
             "type": "string",
             "format": "uuid"
@@ -153,6 +172,7 @@
           "shortName",
           "name",
           "organization",
+          "authType",
           "status",
           "createdAt",
           "createdBy",
@@ -196,6 +216,9 @@
           "status": {
             "$ref": "#/components/schemas/TenantRequestStatus"
           },
+          "authType": {
+            "$ref": "#/components/schemas/AuthType"
+          },
           "clientId": {
             "type": "string",
             "format": "uuid"
@@ -217,7 +240,8 @@
           "version",
           "name",
           "shortName",
-          "status"
+          "status",
+          "authType"
         ]
       }
     }
