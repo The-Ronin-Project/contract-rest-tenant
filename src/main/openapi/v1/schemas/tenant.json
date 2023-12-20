@@ -7,16 +7,6 @@
   },
   "components": {
     "schemas": {
-      "AuthType": {
-        "type": "string",
-        "enum": [
-          "MDA",
-          "MOCK",
-          "OPENID",
-          "SOF"
-        ],
-        "default": "MOCK"
-      },
       "CreateTenantRequest": {
         "title": "Create Ronin tenant",
         "description": "Request to create a Ronin tenant",
@@ -32,8 +22,8 @@
             "minLength": 1,
             "maxLength": 32
           },
-          "authType": {
-            "$ref": "#/components/schemas/AuthType"
+          "type": {
+            "$ref": "#/components/schemas/Type"
           },
           "clientId": {
             "type": "string",
@@ -54,7 +44,8 @@
         },
         "required": [
           "name",
-          "shortName"
+          "shortName",
+          "type"
         ]
       },
       "CreateTenantOrganizationRequest": {
@@ -75,8 +66,8 @@
           "organization": {
             "$ref": "organization.json#/components/schemas/CreateOrganizationRequest"
           },
-          "authType": {
-            "$ref": "#/components/schemas/AuthType"
+          "type": {
+            "$ref": "#/components/schemas/Type"
           },
           "clientId": {
             "type": "string",
@@ -98,7 +89,8 @@
         "required": [
           "shortName",
           "name",
-          "organization"
+          "organization",
+          "type"
         ]
       },
       "Tenant": {
@@ -133,8 +125,8 @@
           "organization": {
             "$ref": "organization.json#/components/schemas/Organization"
           },
-          "authType": {
-            "$ref": "#/components/schemas/AuthType"
+          "type": {
+            "$ref": "#/components/schemas/Type"
           },
           "clientId": {
             "type": "string",
@@ -172,7 +164,7 @@
           "shortName",
           "name",
           "organization",
-          "authType",
+          "type",
           "status",
           "createdAt",
           "createdBy",
@@ -191,6 +183,15 @@
         "enum": [
           "ACTIVE",
           "DELETED"
+        ]
+      },
+      "Type": {
+        "type": "string",
+        "enum": [
+          "EPIC",
+          "ORACLE",
+          "MOCK_EPIC",
+          "MOCK_ORACLE"
         ]
       },
       "UpdateTenantRequest": {
@@ -216,8 +217,8 @@
           "status": {
             "$ref": "#/components/schemas/TenantRequestStatus"
           },
-          "authType": {
-            "$ref": "#/components/schemas/AuthType"
+          "type": {
+            "$ref": "#/components/schemas/Type"
           },
           "clientId": {
             "type": "string",
@@ -241,7 +242,7 @@
           "name",
           "shortName",
           "status",
-          "authType"
+          "type"
         ]
       }
     }
